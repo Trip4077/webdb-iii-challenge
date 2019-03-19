@@ -43,6 +43,36 @@ router.get('/:id', (req, res) => {
      }) 
 })
 
+//EDIT COHORT
+router.put('/:id', (req, res) => {
+    const update = req.body;
+    const { id } = req.params;
 
+    db('cohorts')
+      .where({ id })
+      .update(update)
+      .then(success => {
+          res.status(200).json(success);
+      })
+      .catch(err => {
+          console.log(err);
+      })
+})
+
+//DELETE COHORT
+router.delete('/:id', (req, res) => {
+    const cohort = req.body;
+    const { id } = req.params;
+
+    db('cohorts')
+      .where({ id })
+      .del()
+      .then(success => {
+          res.status(200).json(cohort)
+      })
+      .catch(err => {
+          console.log(err);
+      })
+})
 
 module.exports = router;
