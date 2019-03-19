@@ -5,6 +5,6 @@ const cohortRoutes = require('./cohortRoutes');
 const studentRoutes = require('./studentRoutes');
 
 router.use('/cohorts', cohortRoutes);
-router.use('./students', studentRoutes);
+router.use('/students', studentRoutes);
 
 module.exports = router;
