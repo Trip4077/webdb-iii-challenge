@@ -7,7 +7,6 @@ const knexConfig = require('../knexfile');
 const db = knex(knexConfig.development);
 
 router.get('/', (req, res) => {
-    console.log('test')
     db('cohorts')
       .then(cohorts => {
           res.json(cohorts);
