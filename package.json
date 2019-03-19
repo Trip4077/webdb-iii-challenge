@@ -4,6 +4,7 @@
   "description": "- Databases\r - Relational Databases\r - Knex migrations.\r - Seeding data.",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "helmet": "^3.16.0",
     "knex": "^0.16.3",
