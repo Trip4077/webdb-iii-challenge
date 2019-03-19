@@ -45,6 +45,35 @@ router.get('/:id', (req, res) => {
       })
 })
 
+//EDIT STUDENT
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const update = req.body;
 
+    db('students')
+      .where({ id })
+      .update(update)
+      .then(success => {
+          res.status(201).json(update);
+      })
+      .catch(err => {
+          console.log(err);
+      })
+})
+
+//DELETE STUDENT
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+
+    db('students')
+      .where({ id })
+      .del()
+      .then(success => {
+          res.json(success);
+      })
+      .catch(err => {
+          console.log(err);
+      })
+})
 
 module.exports = router;
