@@ -9,5 +9,5 @@ const server = express();
 server.use(express.json(), helmet(), logger('dev'));
 server.use('/api', routes);
 
-module.export = server;
+module.exports = server;
 
