@@ -35,8 +35,13 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const { id }  = req.params;
     
+    //SELECT cohort.name, student.name from students
+    //JOIN cohort ON cohort.id = student.cohort_id
+
     db('students')
-      .where({ id })
+      .where('students.id', '=', id)
+      .join('cohorts', 'students.cohort_id', '=', 'cohorts.id')
+      .select('students.id', 'students.name', 'cohorts.name as cohort')
       .then(student => {
           res.json(student[0]);
       })
